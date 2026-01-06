@@ -1,0 +1,44 @@
+package io.noartcode.styles
+
+import com.varabyte.kobweb.compose.css.TextDecorationLine
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.style.CssStyle
+import com.varabyte.kobweb.silk.style.selectors.hover
+import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.vh
+
+val TopNavbarStyle = CssStyle {
+    base {
+        Modifier
+            .fillMaxWidth() // Default for mobile/tablet (<= MD)
+            .height(17.vh) // vh (Viewport Height) — Relative to the browser window
+    }
+    /*Breakpoint.LG {
+        Modifier.fillMaxWidth(80.percent) // Larger screens and up (>MD)
+    }*/
+}
+
+val TopNavbarLinkStyle = CssStyle {
+    base {
+        Modifier
+            .fontSize(1.5.cssRem) // 24px
+            .color(Colors.Black)
+            .textDecorationLine(TextDecorationLine.None)
+    }
+    hover {
+        Modifier
+            .color(Colors.Gray)
+            .textDecorationLine(TextDecorationLine.Underline)
+            .textUnderlineOffset(1.cssRem)
+            .styleModifier {
+                property("text-decoration-color", "rgb(181, 181, 181)")
+            }
+    }
+}
+
+
+// Note: Use rem for most things, especially typography and spacing.
+// It makes your site more accessible and easier to maintain!

@@ -1,4 +1,5 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -14,6 +15,19 @@ kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
+
+            head.add {
+                // Preconnect to optimize requests — DSN lookups, TCP handshake, and TLS negotiation
+                link(rel = "preconnect", href = "https://fonts.googleapis.com")
+                link(rel = "preconnect", href = "https://fonts.gstatic.com") {
+                    attributes["crossorigin"] = ""
+                }
+                // Install Google Poppins
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
+                    rel = "stylesheet"
+                )
+            }
         }
     }
 }

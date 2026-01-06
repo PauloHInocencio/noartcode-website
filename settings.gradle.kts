@@ -27,7 +27,7 @@ gradle.settingsEvaluated {
     dependencyResolutionManagement.repositories { kobwebSnapshots() }
 }
 
-rootProject.name = "noartcode"
+rootProject.name = "NoArtCodeIO"
 
 include(":site")
 
