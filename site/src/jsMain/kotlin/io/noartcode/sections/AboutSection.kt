@@ -1,4 +1,4 @@
-package io.noartcode.components
+package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
 

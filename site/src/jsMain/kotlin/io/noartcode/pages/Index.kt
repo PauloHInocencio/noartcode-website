@@ -7,13 +7,12 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.id
-import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.core.Page
-import io.noartcode.components.AboutContent
+import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.TopNavbar
-import org.jetbrains.compose.web.css.px
+import io.noartcode.sections.HeroSection
+import io.noartcode.styles.PageSectionStyle
 
 @Page
 @Composable
@@ -24,7 +23,9 @@ fun HomePage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TopNavbar()
-        PageSection(id = "about") { AboutContent() }
+        HeroSection()
+        //PageSection(id = "") { HeroSection() }
+        //PageSection(id = "about") { AboutContent() }
         //PageSection(id = "experience") { ExperienceContent() }
         //PageSection(id = "projects") { ProjectsContent() }
         //PageSection(id = "Contact") { ContactContent() }
@@ -35,14 +36,12 @@ fun HomePage() {
 @Composable
 fun PageSection(
     id: String,
-    modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
     Box(
-        modifier = modifier
-            .fillMaxWidth()
+        modifier = PageSectionStyle.toModifier()
             .id(id)
-            .padding(topBottom = 60.px)
+            //.padding(topBottom = 60.px)
     ){
         content()
     }

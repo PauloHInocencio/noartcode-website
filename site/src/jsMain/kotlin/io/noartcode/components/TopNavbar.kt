@@ -42,6 +42,7 @@ fun TopNavbar() {
             // Logo
             P(
                 attrs = Modifier
+                    .margin(0.px)
                     .fontSize(2.cssRem).toAttrs()
             ) {
                 Text("NoArtCode")
@@ -63,9 +64,6 @@ fun TopNavbar() {
         if (isMenuOpen) {
             Column(
                 modifier = Modifier
-                    //.position(Position.Absolute)
-                    //.top(17.vh) // Position bellow the navbar
-                    //.left(0.px)
                     .displayUntil(Breakpoint.LG)
                     .margin(top = 10.vh, right = 2.vh)
                     .backgroundColor(Colors.White)
