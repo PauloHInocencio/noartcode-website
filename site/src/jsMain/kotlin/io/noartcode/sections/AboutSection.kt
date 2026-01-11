@@ -1,7 +1,6 @@
 package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -16,13 +15,13 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
+import io.noartcode.components.SectionHeader
 import io.noartcode.styles.AboutMeImageStyle
 import io.noartcode.util.Constants
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.H3
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -32,29 +31,10 @@ fun AboutContent() {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            P (Modifier
-                .margin(0.px)
-                .color(Color.rgb(85, 85, 85))
-                .fontSize(16.px)
-                .fontWeight(FontWeight.Normal)
-                .toAttrs()
-            ){
-                Text("Get To Know More")
-            }
-            H1 (
-                Modifier
-                    .fontWeight(FontWeight.SemiBold)
-                    .fontSize(3.cssRem)
-                    .margin(0.px)
-                    .toAttrs()
-            ) {
-                Text("About Me")
-            }
-        }
+        SectionHeader(
+            title = "About Me",
+            subTitle = "Get To Know Me"
+        )
         Row( // In Kobweb (and CSS), when you use a Row, it creates a flex container with display: flex and flex-direction: row.
             modifier = Modifier
                 .gap(4.cssRem)
@@ -128,8 +108,6 @@ private fun AboutMeImage() {
         src = "paulo_avatar.png",
         alt = "Paulo Inocencio",
     )
-
-
 }
 
 

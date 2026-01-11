@@ -9,6 +9,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.core.Page
 import io.noartcode.components.TopNavbar
 import io.noartcode.sections.AboutContent
+import io.noartcode.sections.ExperienceContent
 import io.noartcode.sections.HeroSection
 import io.noartcode.sections.PageSection
 
@@ -22,10 +23,8 @@ fun HomePage() {
     ) {
         TopNavbar()
         HeroSection()
-        PageSection(id = "about", navigateToPath = "#experience") {
-            AboutContent()
-        }
-        //PageSection(id = "experience") { ExperienceContent() }
+        PageSection(id = "about", navigateToPath = "#experience") { AboutContent() }
+        PageSection(id = "experience", navigateToPath = "#projects") { ExperienceContent() }
         //PageSection(id = "projects") { ProjectsContent() }
         //PageSection(id = "Contact") { ContactContent() }
     }

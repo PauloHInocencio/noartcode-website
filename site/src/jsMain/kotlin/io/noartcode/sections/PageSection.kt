@@ -12,7 +12,6 @@ import io.noartcode.styles.PageSectionStyle
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.unaryMinus
 
 @Composable
 fun PageSection(
@@ -33,7 +32,7 @@ fun PageSection(
             Image(
                 modifier = Modifier
                     .position(Position.Absolute)
-                    .right(-(5).cssRem)
+                    .right(5.cssRem)
                     .bottom(2.5.cssRem)
                     .size(32.px),
                 src = "arrow.png"
