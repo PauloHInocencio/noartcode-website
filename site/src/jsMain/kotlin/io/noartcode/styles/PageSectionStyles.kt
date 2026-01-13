@@ -21,7 +21,7 @@ val PageSectionStyle = CssStyle {
 
     Breakpoint.XL {
         Modifier
-            .padding(top = 4.vh, leftRight = 10.cssRem)
+            .padding(top = 0.vh, leftRight = 10.cssRem)
     }
 
 }

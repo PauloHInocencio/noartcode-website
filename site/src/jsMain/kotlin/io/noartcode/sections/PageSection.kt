@@ -33,7 +33,7 @@ fun PageSection(
                 modifier = Modifier
                     .position(Position.Absolute)
                     .right(5.cssRem)
-                    .bottom(2.5.cssRem)
+                    .bottom(5.cssRem)
                     .size(32.px),
                 src = "arrow.png"
             )

@@ -35,10 +35,11 @@ val PrimaryButtonStyle = CssStyle {
 val SecondaryButtonStyle = CssStyle {
     base {
         Modifier
-            .padding(topBottom = 1.cssRem, leftRight = 1.7.cssRem)
+            .padding(1.cssRem)
+            .width(8.cssRem)
             .backgroundColor(Colors.White)
             .color(Color.rgb(53, 53, 53))
-            .border(1.px, LineStyle.Solid, Color.rgb(53, 53, 53))
+            .border(1.px, LineStyle.Solid, color = Color.rgb(163, 163,163))
             .borderRadius(50.px)
             .fontSize(0.7.cssRem)
             .fontWeight(FontWeight.SemiBold)

@@ -17,7 +17,7 @@ import org.jetbrains.compose.web.css.vh
 val HeroSectionStyle = CssStyle {
     base {
         Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .minHeight(83.vh) // Full viewport minus navbar (17vh)
             .padding(2.cssRem)
     }
