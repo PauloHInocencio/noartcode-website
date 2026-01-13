@@ -12,16 +12,16 @@ import org.jetbrains.compose.web.css.vh
 val PageSectionStyle = CssStyle {
     base {
         Modifier
-            .padding(top = 0.vh, leftRight = 1.cssRem)
+            .padding(top =4.vh, leftRight = 1.cssRem)
             .margin(topBottom = 0.px)
-            .height(96.vh)
+            .height(100.vh)
             .fillMaxWidth()
             .boxSizing(BoxSizing.BorderBox)
     }
 
     Breakpoint.XL {
         Modifier
-            .padding(top = 0.vh, leftRight = 10.cssRem)
+            .padding(top = 4.vh, leftRight = 10.cssRem)
     }
 
 }

@@ -65,6 +65,7 @@ private fun ProjectCard(
         Modifier
             .padding(1.5.cssRem)
             .borderRadius(2.cssRem)
+            .backgroundColor(Color.rgb(250, 250, 250))
             .border(
                 width = 1.px,
                 style = LineStyle.Solid,
