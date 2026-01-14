@@ -6,13 +6,13 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
 import io.noartcode.components.AppButton
 import io.noartcode.components.ButtonVariant
 import io.noartcode.components.SectionHeader
+import io.noartcode.styles.Theme
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
@@ -65,11 +65,11 @@ private fun ProjectCard(
         Modifier
             .padding(1.5.cssRem)
             .borderRadius(2.cssRem)
-            .backgroundColor(Color.rgb(250, 250, 250))
+            .backgroundColor(Theme.BackgroundSecondary)
             .border(
                 width = 1.px,
                 style = LineStyle.Solid,
-                color = Color.rgb(163, 163,163)
+                color = Theme.BorderPrimary
             )
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally

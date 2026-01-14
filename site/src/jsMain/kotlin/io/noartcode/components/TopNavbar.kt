@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.icons.fa.FaBars
@@ -18,11 +17,11 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
+import io.noartcode.styles.Theme
 import io.noartcode.styles.TopNavbarLinkStyle
 import io.noartcode.styles.TopNavbarStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.rgba
 import org.jetbrains.compose.web.css.vh
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -66,14 +65,14 @@ fun TopNavbar() {
                 modifier = Modifier
                     .displayUntil(Breakpoint.LG)
                     .margin(top = 10.vh, right = 2.vh)
-                    .backgroundColor(Colors.White)
+                    .backgroundColor(Theme.BackgroundPrimary)
                     .padding(2.cssRem)
                     .gap(1.5.cssRem)
                     .boxShadow(
                         offsetX = 0.px,
                         offsetY = 4.px,
                         blurRadius = 6.px,
-                        color = rgba(0, 0, 0, 0.1)
+                        color = Theme.ShadowDefault
                     )
                     .zIndex(100), // Ensure it overlays content
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -86,24 +85,26 @@ fun TopNavbar() {
 }
 
 @Composable
-private fun NavigationLinks() {
+fun NavigationLinks(
+    linksModifier: Modifier = TopNavbarLinkStyle.toModifier()
+) {
     Link(
-        modifier = TopNavbarLinkStyle.toModifier(),
+        modifier = linksModifier,
         path = "#about",
         text = "About"
     )
     Link(
-        modifier = TopNavbarLinkStyle.toModifier(),
+        modifier = linksModifier,
         path = "#experience",
         text = "Experience"
     )
     Link(
-        modifier = TopNavbarLinkStyle.toModifier(),
+        modifier = linksModifier,
         path = "#projects",
         text = "Projects"
     )
     Link(
-        modifier = TopNavbarLinkStyle.toModifier(),
+        modifier = linksModifier,
         path = "#contact",
         text = "Contact"
     )

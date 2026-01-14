@@ -3,8 +3,6 @@ package io.noartcode.styles
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
@@ -86,7 +84,7 @@ val GreetingTextStyle = CssStyle {
             .fontSize(1.cssRem)
             .margin(0.px)
             .fontWeight(FontWeight.SemiBold)
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
     }
 }
 
@@ -96,7 +94,7 @@ val HeroNameTextStyle = CssStyle {
             .fontSize(3.cssRem)
             .margin(0.px)
             .fontWeight(FontWeight.SemiBold)
-            .color(Colors.Black)
+            .color(Theme.TextPrimary)
     }
     Breakpoint.LG {
         Modifier
@@ -110,7 +108,7 @@ val RoleTextStyle = CssStyle {
             .fontSize(1.2.cssRem)
             .margin(0.px)
             .fontWeight(FontWeight.SemiBold)
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
     }
     Breakpoint.LG {
         Modifier

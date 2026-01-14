@@ -2,7 +2,6 @@ package io.noartcode.styles
 
 import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
@@ -25,16 +24,34 @@ val TopNavbarLinkStyle = CssStyle {
     base {
         Modifier
             .fontSize(1.5.cssRem) // 24px
-            .color(Colors.Black)
+            .color(Theme.Link.Default)
             .textDecorationLine(TextDecorationLine.None)
     }
     hover {
         Modifier
-            .color(Colors.Gray)
+            .color(Theme.Link.Hover)
             .textDecorationLine(TextDecorationLine.Underline)
             .textUnderlineOffset(1.cssRem)
             .styleModifier {
-                property("text-decoration-color", "rgb(181, 181, 181)")
+                property("text-decoration-color", Theme.Link.UnderlineHover.toString())
+            }
+    }
+}
+
+val BottomNavbarLinkStyle = CssStyle {
+    base {
+        Modifier
+            .fontSize(1.cssRem) // 24px
+            .color(Theme.Link.Default)
+            .textDecorationLine(TextDecorationLine.None)
+    }
+    hover {
+        Modifier
+            .color(Theme.Link.Hover)
+            //.textDecorationLine(TextDecorationLine.Underline)
+            //.textUnderlineOffset(1.cssRem)
+            .styleModifier {
+                property("text-decoration-color", Theme.Link.UnderlineHover.toString())
             }
     }
 }

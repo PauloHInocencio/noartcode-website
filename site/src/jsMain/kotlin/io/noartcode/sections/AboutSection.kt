@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
@@ -17,6 +16,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.SectionHeader
 import io.noartcode.styles.AboutMeImageStyle
+import io.noartcode.styles.Theme
 import io.noartcode.util.Constants
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.LineStyle
@@ -93,7 +93,7 @@ private fun AboutMeContentContainer(){
             )
         }
         P(attrs = Modifier
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
             .toAttrs()) {
             Text(Constants.LOREM_IPSUM_LONG)
         }
@@ -127,7 +127,7 @@ private fun AboutMeContainer(
             .border(
                 width = 1.px,
                 style = LineStyle.Solid,
-                color = Color.rgb(163, 163, 163)
+                color = Theme.BorderPrimary
             )
     ) {
         Image(
@@ -143,14 +143,14 @@ private fun AboutMeContainer(
         }
         P(attrs = Modifier
             .margin(0.px)
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
             .toAttrs()
         ) {
             Text(description1)
         }
         P(attrs = Modifier
             .margin(0.px)
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
             .toAttrs()
         ) {
             Text(description2)

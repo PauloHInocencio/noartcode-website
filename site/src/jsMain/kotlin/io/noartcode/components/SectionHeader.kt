@@ -5,9 +5,9 @@ import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import io.noartcode.styles.Theme
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.H1
@@ -25,7 +25,7 @@ fun SectionHeader(
     ) {
         P (Modifier
             .margin(0.px)
-            .color(Color.rgb(85, 85, 85))
+            .color(Theme.TextSecondary)
             .fontSize(16.px)
             .fontWeight(FontWeight.Normal)
             .toAttrs()

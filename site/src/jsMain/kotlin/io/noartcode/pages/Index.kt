@@ -23,7 +23,7 @@ fun HomePage() {
         PageSection(id = "about", navigateToPath = "#experience") { AboutContent() }
         PageSection(id = "experience", navigateToPath = "#projects") { ExperienceContent() }
         PageSection(id = "projects", navigateToPath = "#contact") { ProjectsContent() }
-        //PageSection(id = "Contact") { ContactContent() }
+        PageSection(id = "contact") { ContactContent() }
     }
 }
 

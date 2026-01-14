@@ -3,8 +3,6 @@ package io.noartcode.styles
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.selectors.hover
@@ -16,10 +14,10 @@ val PrimaryButtonStyle = CssStyle {
     base {
         Modifier
             .padding(topBottom = 1.cssRem, leftRight = 1.7.cssRem)
-            .backgroundColor(Color.rgb(53, 53, 53))
-            .color(Colors.White)
+            .backgroundColor(Theme.Button.PrimaryBackground)
+            .color(Theme.Button.PrimaryText)
             .border(1.px)
-            .border(1.px, LineStyle.Solid, Color.rgb(53, 53, 53))
+            .border(1.px, LineStyle.Solid, Theme.Button.PrimaryBorder)
             .borderRadius(50.px)
             .fontSize(0.7.cssRem)
             .fontWeight(FontWeight.SemiBold)
@@ -28,7 +26,7 @@ val PrimaryButtonStyle = CssStyle {
 
     hover {
         Modifier
-            .backgroundColor(Colors.Black)
+            .backgroundColor(Theme.Button.PrimaryBackgroundHover)
     }
 }
 
@@ -37,9 +35,9 @@ val SecondaryButtonStyle = CssStyle {
         Modifier
             .padding(1.cssRem)
             .width(8.cssRem)
-            .backgroundColor(Colors.White)
-            .color(Color.rgb(53, 53, 53))
-            .border(1.px, LineStyle.Solid, color = Color.rgb(163, 163,163))
+            .backgroundColor(Theme.Button.SecondaryBackground)
+            .color(Theme.Button.SecondaryText)
+            .border(1.px, LineStyle.Solid, color = Theme.Button.SecondaryBorder)
             .borderRadius(50.px)
             .fontSize(0.7.cssRem)
             .fontWeight(FontWeight.SemiBold)
@@ -47,7 +45,7 @@ val SecondaryButtonStyle = CssStyle {
     }
     hover {
         Modifier
-            .backgroundColor(Color.rgb(53, 53, 53))
-            .color(Colors.White)
+            .backgroundColor(Theme.Button.SecondaryBackgroundHover)
+            .color(Theme.Button.SecondaryTextHover)
     }
 }

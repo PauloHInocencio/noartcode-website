@@ -16,7 +16,7 @@ import org.jetbrains.compose.web.css.px
 @Composable
 fun PageSection(
     id: String,
-    navigateToPath:String,
+    navigateToPath:String? = null,
     content: @Composable () -> Unit
 ) {
     Box(
@@ -25,18 +25,20 @@ fun PageSection(
             .id(id)
     ){
         content()
-        Link(
-            modifier = Modifier.cursor(Cursor.Pointer),
-            path = navigateToPath,
-        ) {
-            Image(
-                modifier = Modifier
-                    .position(Position.Absolute)
-                    .right(5.cssRem)
-                    .bottom(5.cssRem)
-                    .size(32.px),
-                src = "arrow.png"
-            )
+        if (navigateToPath != null) {
+            Link(
+                modifier = Modifier.cursor(Cursor.Pointer),
+                path = navigateToPath,
+            ) {
+                Image(
+                    modifier = Modifier
+                        .position(Position.Absolute)
+                        .right(5.cssRem)
+                        .bottom(5.cssRem)
+                        .size(32.px),
+                    src = "arrow.png"
+                )
+            }
         }
 
     }
