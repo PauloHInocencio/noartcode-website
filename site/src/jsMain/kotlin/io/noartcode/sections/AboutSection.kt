@@ -18,6 +18,7 @@ import io.noartcode.components.SectionHeader
 import io.noartcode.styles.AboutMeImageStyle
 import io.noartcode.styles.Theme
 import io.noartcode.util.Constants
+import io.noartcode.util.Res
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
@@ -105,7 +106,7 @@ private fun AboutMeContentContainer(){
 private fun AboutMeImage() {
     Image(
         modifier = AboutMeImageStyle.toModifier(),
-        src = "paulo_avatar.png",
+        src = Res.Image.PROFILE_IMAGE,
         alt = "Paulo Inocencio",
     )
 }

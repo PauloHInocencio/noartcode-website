@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.core.Page
-import io.noartcode.components.TopNavbar
 import io.noartcode.sections.*
 
 @Page
@@ -18,9 +17,7 @@ fun HomePage() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TopNavbar()
-        HeroSection()
-        PageSection(id = "about", navigateToPath = "#experience") { AboutContent() }
+        PageSection(id = "about", navigateToPath = "#experience") { HeroSectionContent() }
         PageSection(id = "experience", navigateToPath = "#projects") { ExperienceContent() }
         PageSection(id = "projects", navigateToPath = "#contact") { ProjectsContent() }
         PageSection(id = "contact") { ContactContent() }

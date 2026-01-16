@@ -2,41 +2,45 @@ package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
-import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.gap
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.icons.fa.FaGithub
 import com.varabyte.kobweb.silk.components.icons.fa.FaLinkedin
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.components.navigation.Link
-import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
-import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.AppButton
 import io.noartcode.components.ButtonVariant
+import io.noartcode.components.TopNavbar
 import io.noartcode.styles.*
+import io.noartcode.util.Constants
+import io.noartcode.util.Res
 import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun HeroSection(){
-    Box(
+fun HeroSectionContent(){
+    Column (
         modifier = HeroSectionStyle.toModifier(),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
-
+        TopNavbar()
         // Desktop layout
-        Row(
+/*        Row(
             modifier = HeroContentStyle.toModifier()
                 .displayIfAtLeast(Breakpoint.LG),
             horizontalArrangement = Arrangement.Center,
@@ -44,12 +48,12 @@ fun HeroSection(){
         ) {
             HeroImageContainer()
             HeroTextContainer()
-        }
+        }*/
 
         // Mobile Layout
         Column(
-            modifier = HeroContentStyle.toModifier()
-                .displayUntil(Breakpoint.LG),
+            modifier = HeroContentStyle.toModifier(),
+                //.displayUntil(Breakpoint.LG),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -67,7 +71,7 @@ private fun HeroImageContainer() {
         verticalArrangement = Arrangement.Center
     ) {
         Img(
-            src = "paulo_avatar.png",
+            src = Res.Image.PROFILE_IMAGE,
             alt = "The NoArtCoder",
             attrs = HeroImageStyle.toAttrs()
         )
@@ -91,7 +95,13 @@ private fun HeroTextContainer(){
         P(attrs = RoleTextStyle.toAttrs()){
             Text("Android Developer")
         }
-
+        P(attrs = Modifier
+            .color(Theme.TextSecondary)
+            .fillMaxWidth(80.percent)
+            .margin(topBottom = 1.cssRem)
+            .toAttrs()) {
+            Text(Constants.LOREM_IPSUM_LONG)
+        }
         Row(
             modifier = Modifier
                 .gap(1.cssRem)

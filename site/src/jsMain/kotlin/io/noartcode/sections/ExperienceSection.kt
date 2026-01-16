@@ -10,15 +10,12 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.components.icons.fa.FaAndroid
-import com.varabyte.kobweb.silk.components.icons.fa.FaApple
-import com.varabyte.kobweb.silk.components.icons.fa.FaGolang
-import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.SectionHeader
 import io.noartcode.styles.AboutMeImageStyle
 import io.noartcode.styles.Theme
 import io.noartcode.util.Constants
+import io.noartcode.util.Res
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
@@ -41,7 +38,7 @@ fun ExperienceContent() {
             verticalAlignment = Alignment.CenterVertically
         ){
             ExperienceCardsContainer()
-            ExperienceImageContainer()
+            //ExperienceImageContainer()
         }
     }
 }
@@ -54,35 +51,47 @@ private fun ExperienceCardsContainer(){
             .display(DisplayStyle.Grid)
             .gap(2.cssRem)
             .gridTemplateColumns{
-                repeat(2) {
+                repeat(3) {
                     size(1.fr)
                 }
             }
             .toAttrs()
     ) {
         ExperienceCard(
-            icon = { FaAndroid(size = IconSize.XXL) },
+            icon = { Image(src = "android.svg", modifier = Modifier.size(52.px)) },
             title = "Android Development",
             subTitle = "12+ years",
             description = Constants.LOREM_IPSUM_SHORTEST
         )
         ExperienceCard(
-            icon = { FaApple(size = IconSize.XXL) },
-            title = "iOS Development",
-            subTitle = "3+ years",
+            icon = { Image(src = "cmp.svg", modifier = Modifier.size(52.px)) },
+            title = "Compose Multiplatform",
+            subTitle = "4+ years",
             description = Constants.LOREM_IPSUM_SHORTEST
         )
         ExperienceCard(
-            icon = { FaAndroid(size = IconSize.XXL) },
+            icon = { Image(src = "kmp.svg", modifier = Modifier.size(52.px)) },
             title = "Kotlin Multiplatform",
-            subTitle = "5+ years",
+            subTitle = "4+ years",
             description = Constants.LOREM_IPSUM_SHORTEST
         )
 
         ExperienceCard(
-            icon = { FaGolang(size = IconSize.XXL) },
+            icon = { Image(src = "ios.svg", modifier = Modifier.size(52.px)) },
+            title = "iOS Development",
+            subTitle = "4+ years",
+            description = Constants.LOREM_IPSUM_SHORTEST
+        )
+        ExperienceCard(
+            icon = { Image(src = "golang.svg", modifier = Modifier.size(52.px)) },
             title = "Backend Development",
             subTitle = "2+ years",
+            description = Constants.LOREM_IPSUM_SHORTEST
+        )
+        ExperienceCard(
+            icon = { Image(src = "html.svg", modifier = Modifier.size(52.px)) },
+            title = "Frontend Development",
+            subTitle = "1+ years",
             description = Constants.LOREM_IPSUM_SHORTEST
         )
     }
@@ -141,7 +150,7 @@ private fun ExperienceImageContainer() {
     ) {
         Image(
             modifier = AboutMeImageStyle.toModifier(),
-            src = "paulo_avatar.png",
+            src = Res.Image.PROFILE_IMAGE,
             alt = "Paulo Inocencio",
         )
     }

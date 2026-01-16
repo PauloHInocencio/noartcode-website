@@ -35,7 +35,7 @@ fun TopNavbar() {
     ) {
         Row(
             modifier = TopNavbarStyle.toModifier(),
-            horizontalArrangement = Arrangement.SpaceAround,
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             // Logo

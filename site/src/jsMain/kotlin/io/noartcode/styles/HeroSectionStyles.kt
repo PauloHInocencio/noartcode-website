@@ -10,19 +10,18 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.vh
 
 val HeroSectionStyle = CssStyle {
     base {
         Modifier
             .fillMaxSize()
-            .minHeight(83.vh) // Full viewport minus navbar (17vh)
-            .padding(2.cssRem)
+            //.minHeight(83.vh) // Full viewport minus navbar (17vh)
+            //.padding(2.cssRem)
     }
-    Breakpoint.LG {
+/*    Breakpoint.LG {
         Modifier
             .padding(4.cssRem)
-    }
+    }*/
 }
 
 val HeroContentStyle = CssStyle {
@@ -71,11 +70,11 @@ val HeroImageStyle = CssStyle {
             }
 
     }
-    Breakpoint.LG {
+    /*Breakpoint.LG {
         Modifier
             .width(400.px)
             .height(400.px)
-    }
+    }*/
 }
 
 val GreetingTextStyle = CssStyle {
