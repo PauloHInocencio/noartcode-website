@@ -2,7 +2,7 @@ package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -10,18 +10,20 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
+import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
+import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.SectionHeader
-import io.noartcode.styles.AboutMeImageStyle
+import io.noartcode.models.ExperienceItem
+import io.noartcode.styles.ExperienceCardStyle
+import io.noartcode.styles.ExperienceCardsContainerStyle
 import io.noartcode.styles.Theme
 import io.noartcode.util.Constants
-import io.noartcode.util.Res
-import org.jetbrains.compose.web.ExperimentalComposeWebApi
-import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H3
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.*
 
 @Composable
 fun ExperienceContent() {
@@ -44,58 +46,41 @@ fun ExperienceContent() {
 }
 
 @Composable
-private fun ExperienceCardsContainer(){
+private fun ExperienceCardsContainer() {
+    // Desktop: Full cards with descriptions
     Div(
-        attrs = Modifier
-            .flexGrow(1)
-            .display(DisplayStyle.Grid)
-            .gap(2.cssRem)
-            .gridTemplateColumns{
-                repeat(3) {
-                    size(1.fr)
-                }
-            }
+        attrs = ExperienceCardsContainerStyle
+            .toModifier()
+            .displayIfAtLeast(Breakpoint.LG)
             .toAttrs()
     ) {
-        ExperienceCard(
-            icon = { Image(src = "android.svg", modifier = Modifier.size(52.px)) },
-            title = "Android Development",
-            subTitle = "12+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
-        ExperienceCard(
-            icon = { Image(src = "cmp.svg", modifier = Modifier.size(52.px)) },
-            title = "Compose Multiplatform",
-            subTitle = "4+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
-        ExperienceCard(
-            icon = { Image(src = "kmp.svg", modifier = Modifier.size(52.px)) },
-            title = "Kotlin Multiplatform",
-            subTitle = "4+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
+        Constants.EXPERIENCE_ITEMS.forEach { item ->
+            ExperienceCard(
+                icon = { ExperienceIcon(item) },
+                title = item.title,
+                subTitle = item.subTitle,
+                description = item.description
+            )
+        }
+    }
 
-        ExperienceCard(
-            icon = { Image(src = "ios.svg", modifier = Modifier.size(52.px)) },
-            title = "iOS Development",
-            subTitle = "4+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
-        ExperienceCard(
-            icon = { Image(src = "golang.svg", modifier = Modifier.size(52.px)) },
-            title = "Backend Development",
-            subTitle = "2+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
-        ExperienceCard(
-            icon = { Image(src = "html.svg", modifier = Modifier.size(52.px)) },
-            title = "Frontend Development",
-            subTitle = "1+ years",
-            description = Constants.LOREM_IPSUM_SHORTEST
-        )
+    // Mobile/Tablet: Compact cards without descriptions
+    Div(
+        attrs = ExperienceCardsContainerStyle
+            .toModifier()
+            .displayUntil(Breakpoint.LG)
+            .toAttrs()
+    ) {
+        Constants.EXPERIENCE_ITEMS.forEach { item ->
+            SmallExperienceCard(
+                icon = { ExperienceIcon(item) },
+                title = item.title,
+                subTitle = item.subTitle
+            )
+        }
     }
 }
+
 
 @Composable
 private fun ExperienceCard(
@@ -105,15 +90,7 @@ private fun ExperienceCard(
     description:String
 ) {
     Div(
-        attrs = Modifier
-            .padding(1.5.cssRem)
-            .borderRadius(2.cssRem)
-            .border(
-                width = 1.px,
-                style = LineStyle.Solid,
-                color = Theme.BorderPrimary
-            )
-            .toAttrs()
+        attrs = ExperienceCardStyle.toAttrs()
     ) {
         Column(Modifier.gap(0.5.cssRem)) {
             Div {
@@ -142,16 +119,52 @@ private fun ExperienceCard(
     }
 }
 
-@OptIn(ExperimentalComposeWebApi::class)
 @Composable
-private fun ExperienceImageContainer() {
-    Box(
-        Modifier.flexShrink(0)
+private fun SmallExperienceCard(
+    icon: @Composable () -> Unit,
+    title:String,
+    subTitle:String,
+) {
+    Div(
+        attrs = ExperienceCardStyle.toAttrs()
     ) {
-        Image(
-            modifier = AboutMeImageStyle.toModifier(),
-            src = Res.Image.PROFILE_IMAGE,
-            alt = "Paulo Inocencio",
+        Column {
+            Div {
+                icon()
+            }
+            H4(attrs = Modifier
+                .margin(0.px)
+                .toAttrs()) {
+                Text(title)
+            }
+            P(attrs = Modifier
+                .margin(0.px)
+                .fontWeight(FontWeight.SemiBold)
+                .color(Theme.TextSecondary)
+                .toAttrs()
+            ) {
+                Text(subTitle)
+            }
+        }
+
+    }
+}
+
+@Composable
+private fun ExperienceIcon(item: ExperienceItem) {
+    val modifier = if (item.useScaleDown) {
+        Modifier
+            .objectFit(ObjectFit.ScaleDown)
+            .size(
+                width = item.iconWidth?.px ?: item.iconHeight.px,
+                height = item.iconHeight.px
+            )
+    } else {
+        Modifier.size(
+            width = item.iconWidth?.px ?: item.iconHeight.px,
+            height = item.iconHeight.px
         )
     }
+
+    Image(src = item.iconPath, modifier = modifier)
 }

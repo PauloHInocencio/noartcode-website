@@ -60,8 +60,8 @@ val HeroContentStyle = CssStyle {
 val HeroImageStyle = CssStyle {
     base {
         Modifier
-            .width(200.px)
-            .height(200.px)
+            .width(150.px)
+            .height(150.px)
             .borderRadius(50.percent)
             .objectFit(ObjectFit.Cover)
             .styleModifier {
@@ -70,11 +70,11 @@ val HeroImageStyle = CssStyle {
             }
 
     }
-    /*Breakpoint.LG {
+    Breakpoint.LG {
         Modifier
-            .width(400.px)
-            .height(400.px)
-    }*/
+            .width(200.px)
+            .height(200.px)
+    }
 }
 
 val GreetingTextStyle = CssStyle {
@@ -90,7 +90,7 @@ val GreetingTextStyle = CssStyle {
 val HeroNameTextStyle = CssStyle {
     base {
         Modifier
-            .fontSize(3.cssRem)
+            .fontSize(2.cssRem)
             .margin(0.px)
             .fontWeight(FontWeight.SemiBold)
             .color(Theme.TextPrimary)
@@ -112,5 +112,19 @@ val RoleTextStyle = CssStyle {
     Breakpoint.LG {
         Modifier
             .fontSize(1.75.cssRem)
+    }
+}
+
+val DescriptionTextStyle = CssStyle {
+    base {
+        Modifier
+            .color(Theme.TextSecondary)
+            .fillMaxWidth(95.percent)
+            .margin(topBottom = 1.cssRem)
+    }
+
+    Breakpoint.LG {
+        Modifier
+            .fillMaxWidth(80.percent)
     }
 }
