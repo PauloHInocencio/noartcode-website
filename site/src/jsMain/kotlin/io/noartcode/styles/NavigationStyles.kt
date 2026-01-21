@@ -5,7 +5,6 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.selectors.hover
 import org.jetbrains.compose.web.css.cssRem
 
@@ -13,12 +12,6 @@ val TopNavbarStyle = CssStyle {
     base {
         Modifier
             .fillMaxWidth() // Default for mobile/tablet (<= MD)
-            .margin(bottom = 4.cssRem)
-
-    }
-    Breakpoint.LG {
-        Modifier
-            .margin(bottom = 8.cssRem)
     }
 }
 

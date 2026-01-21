@@ -9,14 +9,17 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.style.toAttrs
 import io.noartcode.components.AppButton
 import io.noartcode.components.ButtonVariant
 import io.noartcode.components.SectionHeader
+import io.noartcode.styles.ProjectSectionContentStyle
 import io.noartcode.styles.Theme
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H2
 import org.jetbrains.compose.web.dom.Text
 
@@ -27,10 +30,8 @@ fun ProjectsContent() {
             title = "Projects",
             subTitle = "Browse My Recent"
         )
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .margin(topBottom = 2.cssRem)
-            .gap(2.cssRem)
+        Div(
+            attrs = ProjectSectionContentStyle.toAttrs()
         ) {
             ProjectCard(
                 title = "Project One",
@@ -61,7 +62,7 @@ private fun ProjectCard(
     githubLink:String,
     demoLink:String
 ) {
-    Column(
+    Div(
         Modifier
             .padding(1.5.cssRem)
             .borderRadius(2.cssRem)
@@ -71,31 +72,34 @@ private fun ProjectCard(
                 style = LineStyle.Solid,
                 color = Theme.BorderPrimary
             )
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .toAttrs(),
     ) {
-        ProjectImageContainer(
-            imageSrc = imageSrc
-        )
-        H2(
-            Modifier.margin(1.cssRem)
-                .fontWeight(FontWeight.SemiBold)
-                .fontSize(1.75.cssRem)
-                .toAttrs()
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(title)
-        }
-        Row(
-            modifier = Modifier.gap(1.cssRem)
-        ) {
-            AppButton(
-                text = "Github",
-                variant = ButtonVariant.Secondary
+            ProjectImageContainer(
+                imageSrc = imageSrc
             )
-            AppButton(
-                text = "Live Demo",
-                variant = ButtonVariant.Secondary
-            )
+            H2(
+                Modifier.margin(1.cssRem)
+                    .fontWeight(FontWeight.SemiBold)
+                    .fontSize(1.75.cssRem)
+                    .toAttrs()
+            ) {
+                Text(title)
+            }
+            Row(
+                modifier = Modifier.gap(1.cssRem)
+            ) {
+                AppButton(
+                    text = "Github",
+                    variant = ButtonVariant.Secondary
+                )
+                AppButton(
+                    text = "Live Demo",
+                    variant = ButtonVariant.Secondary
+                )
+            }
         }
     }
 }

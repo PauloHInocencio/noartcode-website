@@ -18,10 +18,11 @@ import org.jetbrains.compose.web.css.Position
 fun PageSection(
     id: String,
     navigateToPath:String? = null,
+    modifier: Modifier = PageSectionStyle.toModifier(),
     content: @Composable () -> Unit
 ) {
     Box(
-        modifier = PageSectionStyle.toModifier()
+        modifier = modifier
             .position(Position.Relative)
             .id(id)
     ){

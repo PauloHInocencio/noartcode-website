@@ -2,14 +2,12 @@ package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.color
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
-import com.varabyte.kobweb.compose.ui.modifiers.gap
-import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.icons.fa.FaGithub
@@ -39,26 +37,19 @@ fun HeroSectionContent(){
         verticalArrangement = Arrangement.Top
     ) {
         TopNavbar()
-        // Desktop layout
-/*        Row(
-            modifier = HeroContentStyle.toModifier()
-                .displayIfAtLeast(Breakpoint.LG),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
-            HeroImageContainer()
-            HeroTextContainer()
-        }*/
-
-        // Mobile Layout
-        Column(
-            modifier = HeroContentStyle.toModifier(),
+            Column(
+                modifier = HeroContentStyle.toModifier(),
                 //.displayUntil(Breakpoint.LG),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            HeroImageContainer()
-            HeroTextContainer()
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                HeroImageContainer()
+                HeroTextContainer()
+            }
         }
     }
 
