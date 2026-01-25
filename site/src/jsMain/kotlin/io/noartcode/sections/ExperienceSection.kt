@@ -10,9 +10,8 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
-import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
+import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.SectionHeader
@@ -31,16 +30,27 @@ fun ExperienceContent() {
         modifier = Modifier.fillMaxSize()
     ){
         SectionHeader(
-            title = "Experience",
-            subTitle = "Explore My"
+            title = "Skills",
+            subTitle = "My main"
         )
         Row(modifier = Modifier
             .fillMaxSize()
             .gap(5.cssRem),
             verticalAlignment = Alignment.CenterVertically
         ){
-            ExperienceCardsContainer()
-            //ExperienceImageContainer()
+            SimpleGrid(
+                modifier = Modifier.gap(1.cssRem),
+                numColumns = numColumns(1, md = 3)
+            ) {
+                Constants.EXPERIENCE_ITEMS.forEach { item ->
+                    ExperienceCard(
+                        icon = { ExperienceIcon(item) },
+                        title = item.title,
+                        subTitle = item.subTitle,
+                        description = item.description
+                    )
+                }
+            }
         }
     }
 }
@@ -51,7 +61,6 @@ private fun ExperienceCardsContainer() {
     Div(
         attrs = ExperienceCardsContainerStyle
             .toModifier()
-            .displayIfAtLeast(Breakpoint.LG)
             .toAttrs()
     ) {
         Constants.EXPERIENCE_ITEMS.forEach { item ->
@@ -64,7 +73,7 @@ private fun ExperienceCardsContainer() {
         }
     }
 
-    // Mobile/Tablet: Compact cards without descriptions
+/*    // Mobile/Tablet: Compact cards without descriptions
     Div(
         attrs = ExperienceCardsContainerStyle
             .toModifier()
@@ -78,7 +87,7 @@ private fun ExperienceCardsContainer() {
                 subTitle = item.subTitle
             )
         }
-    }
+    }*/
 }
 
 

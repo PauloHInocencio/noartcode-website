@@ -9,6 +9,10 @@ object Constants {
     const val LOREM_IPSUM_SHORTEST =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
+    const val ABOUT_ME_DESCRIPTION = "I am a software developer with over 14 years of experience, approximately 10 years of which have been focused on native application development, primarily for Android, but also with experience in iOS."
+
+    const val ABOUT_ME_DESCRIPTION_2 = "I’m currently deepening my knowledge of Kotlin Multiplatform through personal projects and by applying it whenever possible at work."
+
     val EXPERIENCE_ITEMS = listOf(
         ExperienceItem(
             iconPath = "android.svg",

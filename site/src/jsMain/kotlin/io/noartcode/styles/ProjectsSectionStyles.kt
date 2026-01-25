@@ -11,6 +11,7 @@ val ProjectSectionContentStyle = CssStyle {
     base {
         Modifier
             .margin(topBottom = 2.cssRem)
+            .maxWidth(1028.px)
             .display(DisplayStyle.Grid)
             .gridTemplateColumns {
                 size(1.fr)  // 1 column for mobile
@@ -39,8 +40,8 @@ val ProjectSectionContentStyle = CssStyle {
 val ProjectPageSectionStyle = CssStyle {
     base {
         Modifier
-            .padding(top = 4.vh, leftRight = 2.cssRem)
-            .margin(topBottom = 0.px)
+            .padding(top = 4.vh, leftRight = 5.cssRem)
+            .margin(topBottom = 1.cssRem)
             .fillMaxWidth()
             .boxSizing(BoxSizing.BorderBox)
     }

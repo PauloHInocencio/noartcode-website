@@ -30,7 +30,7 @@ import org.jetbrains.compose.web.dom.Text
 fun TopNavbar() {
     var isMenuOpen by remember { mutableStateOf(false) }
     Box(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().padding(leftRight = 5.cssRem),
         contentAlignment = Alignment.TopEnd
     ) {
         Row(
@@ -88,20 +88,21 @@ fun TopNavbar() {
 fun NavigationLinks(
     linksModifier: Modifier = TopNavbarLinkStyle.toModifier()
 ) {
-    Link(
-        modifier = linksModifier,
-        path = "#about",
-        text = "About"
-    )
+
     Link(
         modifier = linksModifier,
         path = "#experience",
-        text = "Experience"
+        text = "Skills"
     )
     Link(
         modifier = linksModifier,
         path = "#projects",
         text = "Projects"
+    )
+    Link(
+        modifier = linksModifier,
+        path = "#about",
+        text = "About"
     )
     Link(
         modifier = linksModifier,

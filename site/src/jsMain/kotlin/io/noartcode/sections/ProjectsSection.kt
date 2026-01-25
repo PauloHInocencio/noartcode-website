@@ -25,7 +25,10 @@ import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun ProjectsContent() {
-    Column(Modifier.fillMaxSize()) {
+    Column(
+        Modifier.fillMaxSize(),
+       horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         SectionHeader(
             title = "Projects",
             subTitle = "Browse My Recent"

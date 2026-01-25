@@ -13,18 +13,12 @@ import org.jetbrains.compose.web.css.vh
 val PageSectionStyle = CssStyle {
     base {
         Modifier
-            .padding(top = 4.vh, leftRight = 2.cssRem)
             .margin(topBottom = 0.px)
-            .height(100.vh)
-            .fillMaxWidth()
+            .padding(top = 4.vh, leftRight = 2.cssRem)
+            .maxWidth(1028.px)
+            .minHeight(100.vh)
             .boxSizing(BoxSizing.BorderBox)
     }
-
-   Breakpoint.XL {
-        Modifier
-            .padding(top = 4.vh, leftRight = 10.cssRem)
-   }
-
 }
 
 val PageSectionArrowLinkStyle = CssStyle {

@@ -14,7 +14,7 @@ import org.jetbrains.compose.web.css.px
 val HeroSectionStyle = CssStyle {
     base {
         Modifier
-            .fillMaxSize()
+            .fillMaxHeight()
             //.minHeight(83.vh) // Full viewport minus navbar (17vh)
             //.padding(2.cssRem)
     }
@@ -69,11 +69,6 @@ val HeroImageStyle = CssStyle {
 
             }
 
-    }
-    Breakpoint.LG {
-        Modifier
-            .width(200.px)
-            .height(200.px)
     }
 }
 

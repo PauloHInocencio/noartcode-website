@@ -18,7 +18,6 @@ import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.AppButton
 import io.noartcode.components.ButtonVariant
-import io.noartcode.components.TopNavbar
 import io.noartcode.styles.*
 import io.noartcode.util.Constants
 import io.noartcode.util.Res
@@ -36,7 +35,6 @@ fun HeroSectionContent(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        TopNavbar()
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -75,23 +73,31 @@ private fun HeroTextContainer(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        P(attrs = GreetingTextStyle.toAttrs()){
+       /* P(attrs = GreetingTextStyle.toAttrs()){
             Text("Hello, I'm")
-        }
+        }*/
 
         H1(attrs = HeroNameTextStyle.toAttrs()) {
-            Text("Paulo Inocencio")
+            Text("About Me")
         }
 
-        P(attrs = RoleTextStyle.toAttrs()){
-            Text("Android Developer")
-        }
+/*        P(attrs = RoleTextStyle.toAttrs()){
+            Text("Software Developer")
+        }*/
         P(attrs = Modifier
             .color(Theme.TextSecondary)
             .fillMaxWidth(80.percent)
-            .margin(topBottom = 1.cssRem)
+            .margin(top = 1.cssRem)
             .toAttrs()) {
-            Text(Constants.LOREM_IPSUM_LONG)
+            Text(Constants.ABOUT_ME_DESCRIPTION)
+        }
+
+        P(attrs = Modifier
+            .color(Theme.TextSecondary)
+            .fillMaxWidth(80.percent)
+            .margin(top = 0.5.cssRem, bottom = 1.cssRem)
+            .toAttrs()) {
+            Text(Constants.ABOUT_ME_DESCRIPTION_2)
         }
         Row(
             modifier = Modifier

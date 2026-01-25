@@ -7,11 +7,14 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.selectors.hover
 import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.vh
 
 val TopNavbarStyle = CssStyle {
     base {
         Modifier
             .fillMaxWidth() // Default for mobile/tablet (<= MD)
+            .height(17.vh)
+            .zIndex(10)
     }
 }
 

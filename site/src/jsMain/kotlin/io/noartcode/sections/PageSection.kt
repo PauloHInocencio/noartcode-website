@@ -3,6 +3,7 @@ package io.noartcode.sections
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.id
@@ -21,23 +22,25 @@ fun PageSection(
     modifier: Modifier = PageSectionStyle.toModifier(),
     content: @Composable () -> Unit
 ) {
-    Box(
+   Box(
         modifier = modifier
             .position(Position.Relative)
-            .id(id)
+            .id(id),
+        contentAlignment = Alignment.Center
     ){
-        content()
-        if (navigateToPath != null) {
-            Link(
-                modifier = Modifier.cursor(Cursor.Pointer),
-                path = navigateToPath,
-            ) {
-                Image(
-                    modifier = PageSectionArrowLinkStyle.toModifier(),
-                    src = "arrow.png"
-                )
-            }
-        }
-
+       content()
+       if (navigateToPath != null) {
+           Link(
+               modifier = Modifier.cursor(Cursor.Pointer),
+               path = navigateToPath,
+           ) {
+               Image(
+                   modifier = PageSectionArrowLinkStyle.toModifier(),
+                   src = "arrow.png"
+               )
+           }
+       }
     }
+
+
 }
