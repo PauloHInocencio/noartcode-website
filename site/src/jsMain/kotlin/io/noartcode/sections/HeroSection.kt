@@ -21,6 +21,7 @@ import io.noartcode.components.ButtonVariant
 import io.noartcode.styles.*
 import io.noartcode.util.Constants
 import io.noartcode.util.Res
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.H1
@@ -106,34 +107,34 @@ private fun HeroTextContainer(){
             horizontalArrangement = Arrangement.Start
         ) {
             AppButton(
-                text = "Download CV",
+                text = "My Resume",
                 variant = ButtonVariant.Secondary,
-                onClick = { }
+                onClick = { window.open("cv.pdf", "_blank") }
             )
 
-            AppButton(
+/*            AppButton(
                 text = "Contact Info",
                 variant = ButtonVariant.Primary,
                 onClick = {}
-            )
+            )*/
         }
 
         Row(
             modifier = Modifier
                 .gap(1.cssRem)
-                .margin(top = 1.2.cssRem),
+                .margin(top = 2.cssRem),
             horizontalArrangement = Arrangement.Start
         ) {
             Link(
                 modifier = SocialLinksStyle.toModifier(),
-                path = "#",
+                path = "https://www.linkedin.com/in/paulo-inocencio-b0b123225/",
                 openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
             ) {
                 FaLinkedin(size = IconSize.XXL)
             }
             Link(
                 modifier = SocialLinksStyle.toModifier(),
-                path = "#",
+                path = "https://github.com/PauloHInocencio",
                 openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
             ) {
                 FaGithub(size = IconSize.XXL)

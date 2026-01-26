@@ -1,6 +1,7 @@
 package io.noartcode.util
 
 import io.noartcode.models.ExperienceItem
+import io.noartcode.models.ProjectItem
 
 object Constants {
 
@@ -13,46 +14,70 @@ object Constants {
 
     const val ABOUT_ME_DESCRIPTION_2 = "I’m currently deepening my knowledge of Kotlin Multiplatform through personal projects and by applying it whenever possible at work."
 
+    const val WEBSITE_GITHUB_URL = "https://github.com/PauloHInocencio/noartcode-website"
+    const val KOBWEB_URL = "https://kobweb.varabyte.com"
     val EXPERIENCE_ITEMS = listOf(
         ExperienceItem(
             iconPath = "android.svg",
             title = "Android Development",
-            subTitle = "12+ years",
-            description = LOREM_IPSUM_SHORTEST
+            subTitle = "Specialist",
+            description = "I’m an experienced Android developer with a strong focus on Kotlin, Jetpack Compose, and modern app architecture."
         ),
         ExperienceItem(
             iconPath = "cmp.svg",
             title = "Compose Multiplatform",
-            subTitle = "4+ years",
-            description = LOREM_IPSUM_SHORTEST
+            subTitle = "Advanced",
+            description = "I build cross-platform UIs with Compose Multiplatform, targeting Android, iOS, and desktop from a shared codebase"
         ),
         ExperienceItem(
             iconPath = "kmp.svg",
             title = "Kotlin Multiplatform",
-            subTitle = "4+ years",
-            description = LOREM_IPSUM_SHORTEST
+            subTitle = "Advanced",
+            description = "I work with Kotlin Multiplatform to share business logic across Android, iOS, and desktop apps, building scalable cross-platform solutions."
         ),
         ExperienceItem(
             iconPath = "ios.svg",
             title = "iOS Development",
-            subTitle = "4+ years",
-            description = LOREM_IPSUM_SHORTEST
+            subTitle = "Intermediate",
+            description = "I build native iOS components and integrations using SwiftUI, focusing on bridging shared codebases and platform-specific features."
         ),
         ExperienceItem(
             iconPath = "golang.svg",
             title = "Backend Development",
-            subTitle = "2+ years",
-            description = LOREM_IPSUM_SHORTEST
+            subTitle = "Intermediate",
+            description = "I build backend services in Go, using goroutines for concurrency and real-time features like Server-Sent Events, with a focus on scalable APIs and databases."
         ),
         ExperienceItem(
             iconPath = "kobweb.png",
             title = "Frontend Development",
-            subTitle = "1+ years",
-            description = LOREM_IPSUM_SHORTEST,
+            subTitle = "Beginner",
+            description = "I build this websites using Kobweb, leveraging Kotlin and Compose for Web to create modern, type-safe UIs.",
             iconWidth = 120,
             iconHeight = 52,
             useScaleDown = true
         )
+    )
+
+    val PROJECT_ITEMS = listOf(
+        ProjectItem(
+            title = "ThePrice",
+            description = "ThePrice is a budget app I'm building to help me track my monthly payments while learning more about Compose Multiplatform",
+            tags = listOf("CMP", "Kotlin", "Swift"),
+            link = "https://github.com/PauloHInocencio/ThePrice"
+        ),
+        ProjectItem(
+            "RickAndMorty",
+            description = "This is a sample Android app that implements the MVI architecture design pattern. The app consumes data from the open Rick And Morty Api",
+            tags = listOf("KMP", "Kotlin", "Swift"),
+            link = "https://github.com/PauloHInocencio/RickAndMorty-Android"
+        ),
+        ProjectItem(
+            "Breeze",
+            description = "App to chill out seeing beautiful photos. The app consumes data from the Unsplash API.",
+            tags = listOf("Android", "Kotlin", "Dagger"),
+            link = "https://github.com/PauloHInocencio/Breeze"
+        )
+
     )
 }
 

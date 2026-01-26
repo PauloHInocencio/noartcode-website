@@ -42,7 +42,7 @@ val ExperienceCardStyle = CssStyle {
     base {
         Modifier
             .padding(1.cssRem)
-            .borderRadius(2.cssRem)
+            .borderRadius(20.px)
             .border(
                 width = 1.px,
                 style = LineStyle.Solid,

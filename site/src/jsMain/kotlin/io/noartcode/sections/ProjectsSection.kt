@@ -2,61 +2,112 @@ package io.noartcode.sections
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.navigation.Anchor
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.style.toAttrs
+import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.AppButton
 import io.noartcode.components.ButtonVariant
 import io.noartcode.components.SectionHeader
+import io.noartcode.models.ProjectItem
+import io.noartcode.styles.ProjectCard2Style
 import io.noartcode.styles.ProjectSectionContentStyle
 import io.noartcode.styles.Theme
+import io.noartcode.util.Constants
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H2
-import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.dom.*
 
 @Composable
 fun ProjectsContent() {
     Column(
         Modifier.fillMaxSize(),
-       horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         SectionHeader(
             title = "Projects",
             subTitle = "Browse My Recent"
         )
-        Div(
-            attrs = ProjectSectionContentStyle.toAttrs()
+        SimpleGrid(
+            numColumns(1, md = 2, lg = 3),
+            modifier = ProjectSectionContentStyle.toModifier().gap(1.cssRem).fillMaxSize()
         ) {
-            ProjectCard(
-                title = "Project One",
-                imageSrc = "project-1.png",
-                githubLink = "",
-                demoLink = "",
-            )
-            ProjectCard(
-                title = "Project Two",
-                imageSrc = "project-2.png",
-                githubLink = "",
-                demoLink = "",
-            )
-            ProjectCard(
-                title = "Project Three",
-                imageSrc = "project-3.png",
-                githubLink = "",
-                demoLink = "",
-            )
+            Constants.PROJECT_ITEMS.forEach {
+                ProjectCard2(it)
+            }
         }
     }
 }
+
+
+@Composable
+private fun ProjectCard2(
+    projectItem: ProjectItem
+) {
+    Anchor(
+        href = projectItem.link, ProjectCard2Style.toAttrs()
+    ) {
+        Column (Modifier.fillMaxSize()){
+            H1{
+                Text(projectItem.title)
+            }
+            P {
+                Text(projectItem.description)
+            }
+            Row(
+                Modifier.fillMaxSize().gap(0.5.cssRem),
+                verticalAlignment = Alignment.Bottom
+            ) {
+                projectItem.tags.forEach {
+                    ProjectTag(it)
+                }
+            }
+        }
+    }
+}
+
+
+@Composable
+private fun ProjectTag(
+    value:String
+) {
+    Box(modifier = Modifier
+        .padding(leftRight = 1.cssRem, topBottom = 0.25.cssRem)
+        .fontSize(0.875.cssRem)
+        .borderRadius(90.px)
+        .border(
+            width = 1.px,
+            style = LineStyle.Solid,
+            color = Theme.BorderPrimary
+        ),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(value)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @Composable
 private fun ProjectCard(

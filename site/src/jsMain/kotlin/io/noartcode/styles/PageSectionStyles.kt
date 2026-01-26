@@ -14,7 +14,7 @@ val PageSectionStyle = CssStyle {
     base {
         Modifier
             .margin(topBottom = 0.px)
-            .padding(top = 4.vh, leftRight = 2.cssRem)
+            .padding(topBottom = 4.vh, leftRight = 2.cssRem)
             .maxWidth(1028.px)
             .minHeight(100.vh)
             .boxSizing(BoxSizing.BorderBox)

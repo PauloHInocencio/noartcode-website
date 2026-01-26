@@ -10,6 +10,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.navigation.Link
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.styles.PageSectionArrowLinkStyle
 import io.noartcode.styles.PageSectionStyle
@@ -31,7 +33,7 @@ fun PageSection(
        content()
        if (navigateToPath != null) {
            Link(
-               modifier = Modifier.cursor(Cursor.Pointer),
+               modifier = Modifier.cursor(Cursor.Pointer).displayIfAtLeast(Breakpoint.MD),
                path = navigateToPath,
            ) {
                Image(

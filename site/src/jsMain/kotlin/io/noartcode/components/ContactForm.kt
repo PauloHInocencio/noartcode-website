@@ -23,10 +23,10 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.*
 
 @Composable
-fun ContactForm() {
+fun ContactForm(modifier: Modifier = Modifier) {
     Form(
         action = "https://formspree.io/f/xbjeydwd",
-        attrs = Modifier
+        attrs = modifier
             .attrsModifier {
                 attr("method", "POST")
             }

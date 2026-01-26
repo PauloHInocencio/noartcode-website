@@ -39,7 +39,7 @@ fun ExperienceContent() {
             verticalAlignment = Alignment.CenterVertically
         ){
             SimpleGrid(
-                modifier = Modifier.gap(1.cssRem),
+                modifier = Modifier.gap(2.cssRem),
                 numColumns = numColumns(1, md = 3)
             ) {
                 Constants.EXPERIENCE_ITEMS.forEach { item ->
