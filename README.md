@@ -1,5 +1,5 @@
 # Website
-
+<img width="1392" height="930" alt="website" src="https://github.com/user-attachments/assets/9f8733a7-4144-4989-ac34-a4bea926af73" />
 
 * My very first website built using [Kobweb](https://kobweb.varabyte.com).
 
