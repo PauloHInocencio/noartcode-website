@@ -45,7 +45,7 @@ val HeroSection2ContainerStyle = CssStyle {
 val HeroSectionHeadlineStyle = CssStyle {
     base {
         Modifier
-            .fontSize(5.cssRem)
+            .fontSize(3.cssRem)
             .margin(0.px)
             .textAlign(TextAlign.Start)
             .fontWeight(FontWeight.Bold)
@@ -53,10 +53,10 @@ val HeroSectionHeadlineStyle = CssStyle {
     }
 
 
-/*    Breakpoint.LG {
+    Breakpoint.MD {
         Modifier
-            .fontSize(4.cssRem)
-    }*/
+            .fontSize(5.cssRem)
+    }
 }
 
 /**

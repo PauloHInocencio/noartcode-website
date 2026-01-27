@@ -12,9 +12,11 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.silk.style.toModifier
 import io.noartcode.components.BottomNavBar
 import io.noartcode.components.ContactForm
 import io.noartcode.components.SectionHeader
+import io.noartcode.styles.ContactFormStyle
 import io.noartcode.styles.Theme
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.dom.P
@@ -31,7 +33,7 @@ fun ContactContent() {
             subTitle = "Get in Touch"
         )
         ContactForm(
-            Modifier.margin(top = 4.cssRem)
+            ContactFormStyle.toModifier()
         )
         Box(
             modifier = Modifier.fillMaxSize(),
