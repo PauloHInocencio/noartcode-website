@@ -12,16 +12,12 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.silk.components.navigation.Link
-import com.varabyte.kobweb.silk.components.text.SpanText
 import io.noartcode.components.BottomNavBar
 import io.noartcode.components.ContactForm
 import io.noartcode.components.SectionHeader
 import io.noartcode.styles.Theme
-import io.noartcode.util.Constants
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
@@ -47,17 +43,6 @@ fun ContactContent() {
                 verticalArrangement = Arrangement.Top
             ) {
                 Spacer()
-                Span(
-                    attrs = Modifier
-                        .color(Theme.TextSecondary)
-                        .fontSize(0.75.cssRem)
-                        .toAttrs()
-                ) {
-                    SpanText(text = "This website is ")
-                    Link(path = Constants.WEBSITE_GITHUB_URL, text = "open source")
-                    SpanText(text = ", written using ")
-                    Link(path = Constants.KOBWEB_URL, text = "Kobweb")
-                }
                 BottomNavBar(Modifier.margin(topBottom = 1.cssRem))
                 P(
                     attrs = Modifier

@@ -1,10 +1,13 @@
 package io.noartcode.styles
 
 import com.varabyte.kobweb.compose.css.BoxSizing
+import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.selectors.hover
 import org.jetbrains.compose.web.css.*
 
 val ExperienceCardsContainerStyle = CssStyle {
@@ -76,4 +79,23 @@ val ExperiencePageSectionStyle = CssStyle {
             .height(100.vh)
     }
 
+}
+
+
+val ExperienceCardLinkStyle =CssStyle {
+    base {
+        Modifier
+            //.fontSize(1.cssRem) // 24px
+            .color(Theme.Link.Blue)
+        .textDecorationLine(TextDecorationLine.None)
+    }
+    hover {
+        Modifier
+            .color(Theme.Link.Hover)
+            //.textDecorationLine(TextDecorationLine.Underline)
+            //.textUnderlineOffset(1.cssRem)
+            .styleModifier {
+                property("text-decoration-color", Theme.Link.UnderlineHover.toString())
+            }
+    }
 }

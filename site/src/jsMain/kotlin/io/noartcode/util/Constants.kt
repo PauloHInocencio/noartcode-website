@@ -51,7 +51,7 @@ object Constants {
             iconPath = "kobweb.png",
             title = "Frontend Development",
             subTitle = "Beginner",
-            description = "I build this websites using Kobweb, leveraging Kotlin and Compose for Web to create modern, type-safe UIs.",
+            description = "I built this website using Kobweb, leveraging Kotlin and Compose for Web to create modern, type-safe UIs.",
             iconWidth = 120,
             iconHeight = 52,
             useScaleDown = true

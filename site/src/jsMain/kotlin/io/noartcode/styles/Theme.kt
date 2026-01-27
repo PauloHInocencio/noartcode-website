@@ -115,5 +115,6 @@ object Theme {
         val Default = TextPrimary
         val Hover = TextTertiary
         val UnderlineHover = DecorationLight
+        val Blue = Color.rgb(r = 0, g = 137, b = 237)
     }
 }
