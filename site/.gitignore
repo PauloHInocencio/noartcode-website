@@ -1,6 +1,7 @@
 # Kobweb ignores
 .kobweb/*
 !.kobweb/conf.yaml
+!.kobweb/site
 
 # Java heap dumps
 *.hprof
